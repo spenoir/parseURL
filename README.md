@@ -1,4 +1,7 @@
 This is a simple function that I've written as a jQuery plugin. It simply takes a url as a string and returns its attributes, much the same way that window.location does but with a bit more detail. 
+Also window.location only gives you the current page url. 
+Often when dealing with asynchronous calls and ajax history, you need to do a lot url parsing. 
+This method solves that problem.
 You could extend the window.location object with this function but I don't like messing with prototyping native javascript methods.
 
 
