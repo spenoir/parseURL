@@ -21,24 +21,24 @@ Just drop the compressed file in to your page after jquery has been included.
 
 Example Usage as a jquery plugin
 --------------------------------
-$('a.link').parseURL(window.location.href);
+	$('a.link').parseURL(window.location.href);
 
 
 Example output
 --------------
-{
-	categorySlug: "spenoir",
-	host: "www.github.com",
-	parts: ["spenoir", "parseURL"],
-	path: "spenoir/parseURL",
-	protocol: "https:",
-	url: "https://www.github.com/spenoir/parseURL"
-}
+	{
+		categorySlug: "spenoir",
+		host: "www.github.com",
+		parts: ["spenoir", "parseURL"],
+		path: "spenoir/parseURL",
+		protocol: "https:",
+		url: "https://www.github.com/spenoir/parseURL"
+    }
 
 
 Example Usage with no argument
 ------------------------------
-$('a.link').parseURL();
+	$('a.link').parseURL();
 
 If you pass no argument then parseURL will try to take the previous elements href attribute.
 
