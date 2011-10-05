@@ -10,10 +10,10 @@ Example output:
 {
 	categorySlug: "spenoir",
 	host: "www.github.com",
-	parts: ["spenoir", "parseurl"],
-	path: "spenoir/parseurl",
-	protocol: "http:",
-	url: "http://www.github.com/spenoir/parseurl"
+	parts: ["spenoir", "parseURL"],
+	path: "spenoir/parseURL",
+	protocol: "https:",
+	url: "https://www.github.com/spenoir/parseURL"
 }
 
 Example Usage with no argument:
