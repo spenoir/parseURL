@@ -59,10 +59,10 @@ If you pass no argument then parseURL will try to take the previous elements hre
 Another example
 ---------------
 
-	var parsed_url_arr = $('body').parseURL(window.location.href);
-	parsed_url_arr.parts.pop();
-	parsed_url_arr.push('slug_replacement');
-	var url = parsed_url_arr.join('/');
+	var parsed_slug_arr = $('body').parseURL(window.location.href).parts;
+	parsed_slug_arr.pop();
+	parsed_slug_arr.push('slug_replacement');
+	var url = parsed_slug_arr.join('/');
 		
 
 In the pipeline
