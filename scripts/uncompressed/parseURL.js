@@ -9,7 +9,7 @@
                  *      www.github.com/spenoir/parseurl,
                  */
                 parseURL : function(url, catId) {
-                    var urlArr, urlObj = {}, queryStringArr, hasQueryString=false;
+                    var urlArr, urlObj = {}, queryStringArr, hasQueryString=false, pathArr=false, part=false;
                     //if url has query string then save it
                     if ( $.inArray('?', url) >= 0 ) {                        
                         hasQueryString = true;
@@ -20,7 +20,7 @@
                                         
                     // if theres a hash then split and save that too
                     if (url.match(/\#/)) {
-                        var pathArr = url.split('#');
+                        pathArr = url.split('#');
                         url = pathArr.shift();
                         urlObj.hash = pathArr.shift();      // returns '/some/hash'
                     }
@@ -54,7 +54,7 @@
                     
                     // loop through url parts and save the category slug to urlObj
                     for (i=0;i<urlObj.parts.length;i++) {
-                        var part = urlObj.parts[i];
+                        part = urlObj.parts[i];
                         if ( catId && $.inArray(catId, part) ) {
                             urlObj.categorySlug = part;     // returns 'spenoir'
                             break;

@@ -21,7 +21,7 @@ Just drop the compressed file in to your page after jquery has been included.
 
 Example Usage as a jquery plugin
 --------------------------------
-	$('a.link').parseURL(window.location.href);
+	$('body').parseURL(window.location.href);
 
 
 Example output
@@ -36,12 +36,34 @@ Example output
     }
 
 
+	var url = $('body').parseURL("https://www.github.com/spenoir/parseURL?foo=bar#spenoir");
+
+	{
+		categorySlug: "spenoir",
+		host: "www.github.com",
+		parts: ["spenoir", "parseURL"],
+		path: "spenoir/parseURL",
+		protocol: "https:",
+		url: "https://www.github.com/spenoir/parseURL",
+		hash: "spenoir",
+		queryString: ["foo", "bar"]
+    }
+
 Example Usage with no argument
 ------------------------------
 	$('a.link').parseURL();
 
 If you pass no argument then parseURL will try to take the previous elements href attribute.
 
+
+Another example
+---------------
+
+	var parsed_url_arr = $('body').parseURL(window.location.href);
+	parsed_url_arr.parts.pop();
+	parsed_url_arr.push('slug_replacement');
+	var url = parsed_url_arr.join('/');
+		
 
 In the pipeline
 ---------------
