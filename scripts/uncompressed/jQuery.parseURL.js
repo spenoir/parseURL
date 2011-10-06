@@ -12,7 +12,7 @@
                 	var urlArr, urlObj = {}, queryStringArr, hasQueryString=false, pathArr=false, part=false, arrOfUrls = [];
                 	
                 	buildUrlObj = function(url) {
-	                    
+	                    urlObj.path = '/';
 	                    //if url has query string then save it
 	                    if ( $.inArray('?', url) >= 0 ) {                        
 	                        hasQueryString = true;
@@ -37,28 +37,28 @@
 	                        urlObj.protocol = urlArr.shift();   // returns 'http:'
 	                        urlArr.shift();                     // removes empty item
 	                        urlObj.host = urlArr.shift();       // returns 'www.github.com'
-	                        urlObj.path = urlArr.join('/');     // returns 'spenoir/parseurl'
+	                        urlObj.path += urlArr.join('/');     // returns 'spenoir/parseurl'
 	                        urlObj.parts = urlArr;              // returns [spenoir, parseurl]
 	                    
 	                    // if url string starts with www. and no prtocol                                    
 	                    } else if ( url.match(/www/) ) {  
 	                        urlObj.protocol = null;
 	                        urlObj.host = urlArr.shift();
-	                        urlObj.path = urlArr.join('/');     // should add a leading slash here really
+	                        urlObj.path += urlArr.join('/');     // should add a leading slash here really
 	                        urlObj.parts = urlArr;                      
 	                    
 	                    // if no protocol or host      
 	                    } else {
 	                        urlObj.protocol = null;
 	                        urlObj.host = null
-	                        urlObj.path = urlArr.join('/');
+	                        urlObj.path += urlArr.join('/');
 	                        urlObj.parts = urlArr;                        
 	                    }                    
 	                    
 	                    // loop through url parts and save the category slug to urlObj
 	                    for (i=0;i<urlObj.parts.length;i++) {
 	                        part = urlObj.parts[i];
-	                        if ( catId && $.inArray(catId, part) ) {
+	                        if ( (catId || false).constructor === String && catId === part ) {
 	                            urlObj.categorySlug = part;     // returns 'spenoir'
 	                            break;
 	                        }                        
@@ -72,10 +72,7 @@
                 		
                 		return this.each(function() {
 	                    	var $this = $(this);
-	                    	arrOfUrls.push(buildUrlObj($this.attr('href')));
-	                    	
-	                    	console.log(arrOfUrls);
-	                    	
+	                    	arrOfUrls.push(buildUrlObj($this.attr('href')));	                    	
 	                    	return arrOfUrls;
 	                    });
                 	} 

@@ -6,8 +6,10 @@ does but with a bit more detail. Also window.location only gives you the current
 
 Often when dealing with asynchronous calls and ajax history, you need to do a lot url parsing. 
 This method solves that problem.
-You could extend the window.location object with this function but I don't like messing with prototyping 
+You could extend the window.location object with this function but I'm not sure about messing with prototyping 
 native javascript methods.
+
+Using the current url in javascript encourages the use of your beautiful RESTful interface right?
 
 
 Version
@@ -62,7 +64,7 @@ Another example
 	var parsed_slug_arr = $('body').parseURL(window.location.href).parts;
 	parsed_slug_arr.pop();
 	parsed_slug_arr.push('slug_replacement');
-	var url = parsed_slug_arr.join('/');
+	var url = '/'+parsed_slug_arr.join('/'); //you'll probably want the leading slash, might incorportate this
 		
 
 In the pipeline

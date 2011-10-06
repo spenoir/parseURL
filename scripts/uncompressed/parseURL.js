@@ -55,7 +55,7 @@
                     // loop through url parts and save the category slug to urlObj
                     for (i=0;i<urlObj.parts.length;i++) {
                         part = urlObj.parts[i];
-                        if ( catId && $.inArray(catId, part) ) {
+                        if ( (catId || false).constructor === String && catId === part ) {
                             urlObj.categorySlug = part;     // returns 'spenoir'
                             break;
                         }                        
